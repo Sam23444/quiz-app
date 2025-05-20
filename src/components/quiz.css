@@ -1,0 +1,213 @@
+/* QuizApp.css */
+
+/* Container */
+.quiz-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+  user-select: none;
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading state */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+}
+
+/* Spinner */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 6px solid #eee;
+  border-top-color: #4f46e5; /* Indigo-600 */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Question count */
+.question-count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4b5563; /* Gray-600 */
+  margin-bottom: 0.5rem;
+  user-select: text;
+}
+
+/* Question text */
+.question-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827; /* Gray-900 */
+  margin-bottom: 1.25rem;
+  user-select: text;
+}
+
+/* Answer section container */
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Answer buttons */
+.answer-btn {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151; /* Gray-700 */
+  background-color: #f3f4f6; /* Gray-100 */
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease, box-shadow 0.2s ease;
+  text-align: left;
+  user-select: none;
+}
+
+.answer-btn:hover:not(:disabled) {
+  background-color: #e0e7ff; /* Indigo-100 */
+  border-color: #6366f1; /* Indigo-500 */
+  color: #1e40af; /* Indigo-800 */
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.answer-btn:focus-visible {
+  outline: 3px solid #6366f1; /* Indigo-500 */
+  outline-offset: 2px;
+  background-color: #e0e7ff;
+}
+
+/* Correct answer */
+.answer-btn.correct {
+  background-color: #dcfce7; /* Green-100 */
+  border-color: #22c55e; /* Green-500 */
+  color: #166534; /* Green-800 */
+  cursor: default;
+  box-shadow: 0 0 8px #22c55e99;
+}
+
+/* Incorrect answer */
+.answer-btn.incorrect {
+  background-color: #fee2e2; /* Red-100 */
+  border-color: #ef4444; /* Red-500 */
+  color: #991b1b; /* Red-800 */
+  cursor: default;
+  box-shadow: 0 0 8px #ef444499;
+}
+
+/* Disabled answer buttons (not correct or selected) */
+.answer-btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Explanation text */
+.explanation {
+  background-color: #f9fafb; /* Gray-50 */
+  border-left: 4px solid #6366f1; /* Indigo-500 */
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #374151; /* Gray-700 */
+  margin-bottom: 1rem;
+  user-select: text;
+  border-radius: 0 8px 8px 0;
+  box-shadow: inset 1px 1px 4px #c7d2fe88;
+}
+
+/* Next button container */
+.next-btn-container {
+  text-align: right;
+}
+
+/* Buttons general style */
+.btn {
+  background-color: #4f46e5; /* Indigo-600 */
+  color: white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover:not(:disabled),
+.btn:focus-visible {
+  background-color: #4338ca; /* Indigo-700 */
+  box-shadow: 0 0 8px #4338caaa;
+  outline: none;
+}
+
+.btn:disabled,
+.btn.disabled {
+  background-color: #a5b4fc; /* Indigo-300 */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Score section */
+.score-section {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #111827; /* Gray-900 */
+  user-select: text;
+}
+
+.score-text {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .quiz-container {
+    padding: 1rem 1.25rem;
+  }
+
+  .question-text {
+    font-size: 1.2rem;
+  }
+
+  .answer-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
